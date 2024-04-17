@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+    .wrapper{
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    .wrapper .icon{
+      margin: 0 20px;
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+      transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .wrapper .icon span{
+      display: block;
+      height: 60px;
+      width: 60px;
+      background: #fff;
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+      transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .wrapper .icon span i{
+      line-height: 60px;
+      font-size: 25px;
+    }
+    .wrapper .icon .tooltip{
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      background: #fff;
+      color: #fff;
+      padding: 10px 18px;
+      font-size: 20px;
+      font-weight: 500;
+      border-radius: 25px;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+      transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .wrapper .icon:hover .tooltip{
+      top: -70px;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .icon .tooltip:before{
+      position: absolute;
+      content: "";
+      height: 15px;
+      width: 15px;
+      background: #fff;
+      left: 50%;
+      bottom: -6px;
+      transform: translateX(-50%) rotate(45deg);
+      transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .wrapper .icon:hover span{
+      color: #fff;
+    }
+    .wrapper .icon:hover span,
+    .wrapper .icon:hover .tooltip{
+      text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+    }
+    .wrapper .twitter:hover span,
+    .wrapper .twitter:hover .tooltip,
+    .wrapper .twitter:hover .tooltip:before{
+      background: #46C1F6;
+    }
+    .wrapper .github:hover span,
+    .wrapper .github:hover .tooltip,
+    .wrapper .github:hover .tooltip:before{
+      background: #333;
+    }
+    .wrapper .linkedin:hover span,
+    .wrapper .linkedin:hover .tooltip,
+    .wrapper .linkedin:hover .tooltip:before{
+      background: #0A66C2;
+    }
+
+    a{
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="scr">
+    <span id="scr-val">&#8593;</span>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar" aria-label="Main navigation">  
+    <div class="container-fluid">
+      <a class="navbar-brand fs-4" href="#">Spot<span style="color: #198754; font-weight: bold">News</span></a>
+      <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"> 
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('contact') }}">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+      <form id="searchForm" class="d-flex justify-content-center" action="/" method="post">
+        <div class="input-group m-2">
+          <input class="form-control me-2" type="search" name="keyword" id="keyword" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+      </form>
+    </div>  
+  </nav>
+
+  <div class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h1 class="text-center mb-4">About Us</h1>
+        <p class="lead">Welcome to SpotNews, your go-to source for all the latest news updates.</p>
+        <p class="lead">I am Anurag Panda currently pursuing my Bachelor's degree in Computer Science Engineering with Artificial Intelligence and Machine Learning Specialization. I am a dedicated student with high interests in Deep Learning, Machine Learning and Computer Vision. I made this project to hone my skills in flask. These projects provide a boost and make me want to learn and create more.</p>
+        <p class="lead">Please feel free to check my socials given below</p>
+        <p>I hope you enjoy my website as much as I enjoy offering coding them up. If you have any questions or comments, please don't hesitate to <a href="{{ url_for('contact') }}">contact me</a>.</p>
+        <p>Sincerely,<br>Anurag Panda</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 pt-5 wrapper">
+    <div class="icon linkedin">
+      <div class="tooltip">LinkedIn</div>
+      <a href = "https://www.linkedin.com/in/anurag-panda-aa3b02291/"style="text-decoration: none !important;"><span><i class="fab fa-linkedin"></i></span>
+    </div></a>
+    <div class="icon github">
+      <div class="tooltip">GitHub</div>
+      <a href = "https://github.com/AP200408"style="text-decoration: none !important;"><span><i class="fab fa-github"></i></span></a>
+    </div>
+    <div class="icon twitter">
+      <div class="tooltip">Twitter</div>
+      <a href = "https://twitter.com/panda_anur25752" style="text-decoration: none !important;"><span><i class="fab fa-twitter"></i></span></a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-rlO5RndFzO5M7Pktm2u5r4nV5CfofHHRp8g8vHHgVfT+1f6DkhuON+jUom2b4lSk" crossorigin="anonymous"></script>
+</body>
+</html>
